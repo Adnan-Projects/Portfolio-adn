@@ -28,9 +28,9 @@ const navLinks = [
 ];
 
 const socials = [
-  { icon: <GithubIcon size={16} />, href: "#", label: "GitHub", placeholder: true },
-  { icon: <LinkedinIcon size={16} />, href: "#", label: "LinkedIn", placeholder: true },
-  { icon: <Mail size={16} />, href: "mailto:placeholder@email.com", label: "Email", placeholder: true },
+  { icon: <GithubIcon size={16} />, href: "https://github.com/Adnan-Projects", label: "GitHub", placeholder: false },
+  { icon: <LinkedinIcon size={16} />, href: "https://www.linkedin.com/in/adnannarimukkil", label: "LinkedIn", placeholder: false },
+  { icon: <Mail size={16} />, href: "mailto:adnannarimukkil@gmail.com", label: "Email", placeholder: false },
 ];
 
 export default function Footer() {
@@ -84,6 +84,8 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
+                rel="noopener noreferrer"
                 aria-label={social.label + (social.placeholder ? " (placeholder)" : "")}
                 title={social.placeholder ? `${social.label} — link coming soon` : social.label}
                 className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/35 hover:text-red-400 hover:border-red-500/30 transition-all duration-200"

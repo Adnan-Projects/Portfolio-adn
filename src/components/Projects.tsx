@@ -27,6 +27,17 @@ function ProjectCard({ project, index, featured }: { project: Project; index: nu
         featured ? "lg:col-span-2" : ""
       }`}
     >
+      {/* Clickable cover for the whole card */}
+      {(project.githubUrl || project.liveUrl) && (
+        <a
+          href={project.githubUrl || project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 z-10"
+          aria-label={`View ${project.title}`}
+        />
+      )}
+
       {/* Image / preview area */}
       <div
         className={`relative overflow-hidden bg-[#0d0d0d] border-b border-white/5 ${
@@ -86,7 +97,7 @@ function ProjectCard({ project, index, featured }: { project: Project; index: nu
         </div>
 
         {/* Action buttons */}
-        <div className="flex items-center gap-2 mt-auto">
+        <div className="flex items-center gap-2 mt-auto relative z-20">
           {project.liveUrl ? (
             <a
               href={project.liveUrl}

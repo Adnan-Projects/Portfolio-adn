@@ -41,14 +41,14 @@ function TerminalVisual() {
 
           <div className="pt-1" />
           <TerminalLine delay={1.1} prompt="$" command="cat role.txt" />
-          <TerminalOutput delay={1.3} text="Software Developer" color="text-red-400" />
-          <TerminalOutput delay={1.4} text="Web Designer" color="text-red-400" />
-          <TerminalOutput delay={1.5} text="AI Enthusiast" color="text-red-400" />
+          <TerminalOutput delay={1.3} text="AI Engineer" color="text-red-400" />
+          <TerminalOutput delay={1.4} text="AI Application Engineer" color="text-red-400" />
+          <TerminalOutput delay={1.5} text="Software Developer" color="text-red-400" />
 
           <div className="pt-1" />
           <TerminalLine delay={1.7} prompt="$" command="cat stack.json" />
-          <TerminalOutput delay={1.9} text='{ "current": ["Next.js", "React", "TS",' color="text-white/60" />
-          <TerminalOutput delay={2.0} text='  "ai-tools": ["Antigravity", "Claude"] }' color="text-white/60" />
+          <TerminalOutput delay={1.9} text='{ "core": ["Python", "SQL", "FastAPI"],' color="text-white/60" />
+          <TerminalOutput delay={2.0} text='  "ai": ["LLMs", "RAG", "PyTorch"] }' color="text-white/60" />
 
           <div className="pt-1" />
           <TerminalLine delay={2.2} prompt="$" command="git status" />
@@ -82,8 +82,8 @@ function TerminalVisual() {
         transition={{ duration: 0.6, delay: 2.7 }}
         className="absolute -left-4 bottom-12 bg-[#111]/80 border border-white/10 rounded-lg px-3 py-2 backdrop-blur-sm hidden xl:block"
       >
-        <p className="text-xs text-white/70 font-semibold">MERN Stack</p>
-        <p className="text-xs text-white/30">+ AI Tooling</p>
+        <p className="text-xs text-white/70 font-semibold">AI Stack</p>
+        <p className="text-xs text-white/30">Python + FastAPI</p>
       </motion.div>
     </div>
   );
@@ -189,8 +189,8 @@ export default function Hero() {
             >
               I&apos;m{" "}
               <span className="text-white font-medium">Adnan Narimukkil</span>,
-              a software developer and web designer focused on building modern
-              web applications, software solutions, and digital experiences.
+              an AI Application Engineer focused on building intelligent software solutions, 
+              deploying ML models, and creating AI-powered digital experiences.
             </motion.p>
 
             <motion.p
@@ -258,7 +258,7 @@ export default function Hero() {
               {[
                 { label: "Degree", value: "BCA" },
                 { label: "Pursuing", value: "MSc AI" },
-                { label: "Focus", value: "Web + AI" },
+                { label: "Focus", value: "AI Systems" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-lg font-bold text-white">{stat.value}</p>

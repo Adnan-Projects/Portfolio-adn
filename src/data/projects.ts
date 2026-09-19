@@ -14,20 +14,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Project Coming Soon",
+    id: "pocketai",
+    title: "PocketAI — Offline AI Expense Tracker",
     description:
-      "Details about one of my upcoming projects will be added here. This card is a placeholder for future work.",
-    technologies: ["React", "Next.js", "TypeScript"],
+      "A privacy-focused Android expense management application that automatically detects and categorizes financial transactions using on-device AI from SMS.",
+    longDescription:
+      "PocketAI is a privacy-focused Android expense management application that automatically detects and categorizes financial transactions using on-device AI, while keeping financial data stored locally on the user's device. The architecture separates deterministic financial-data extraction from AI classification.",
+    image: "/images/pocketai.png",
+    technologies: ["Kotlin", "Jetpack Compose", "On-Device AI", "SQLite"],
+    githubUrl: "https://github.com/Adnan-Projects/pocketai",
     featured: true,
-    status: "placeholder",
+    status: "live",
   },
   {
     id: "project-2",
     title: "Project Coming Soon",
     description:
       "Details about one of my upcoming projects will be added here. This card is a placeholder for future work.",
-    technologies: ["Node.js", "MongoDB", "Express"],
+    technologies: ["PyTorch", "LLMs", "RAG", "pgvector"],
     featured: false,
     status: "placeholder",
   },
@@ -36,7 +40,7 @@ export const projects: Project[] = [
     title: "Project Coming Soon",
     description:
       "Details about one of my upcoming projects will be added here. This card is a placeholder for future work.",
-    technologies: ["TypeScript", "Tailwind CSS", "React"],
+    technologies: ["LangChain", "Agents", "Docker", "AWS"],
     featured: false,
     status: "placeholder",
   },

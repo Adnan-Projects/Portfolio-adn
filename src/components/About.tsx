@@ -6,10 +6,10 @@ import { useRef } from "react";
 
 const journey = [
   { label: "BCA", desc: "Bachelor of Computer Applications" },
-  { label: "MERN Stack", desc: "Full-stack web development" },
-  { label: "Software & Web", desc: "Applications, solutions & design" },
-  { label: "MSc AI & CS", desc: "Currently pursuing postgraduate studies" },
-  { label: "AI + Software", desc: "AI-powered development", current: true },
+  { label: "Software Foundation", desc: "Python, SQL, REST APIs, FastAPI" },
+  { label: "Machine Learning", desc: "Scikit-learn, Model evaluation" },
+  { label: "MSc AI & CS", desc: "Deep Learning, PyTorch, Embeddings" },
+  { label: "AI Application Engineer", desc: "GenAI, LLMs, RAG, Cloud Deploy", current: true },
 ];
 
 function useReveal() {
@@ -49,8 +49,8 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight"
             >
-              Software Developer &{" "}
-              <span className="text-red-500">Web Designer</span>
+              AI Application{" "}
+              <span className="text-red-500">Engineer</span>
             </motion.h2>
 
             <motion.div
@@ -60,18 +60,14 @@ export default function About() {
               className="space-y-4 text-white/60 leading-relaxed"
             >
               <p>
-                I build modern web applications and software solutions with a
-                focus on clean interfaces and practical functionality. My
-                background in MERN stack development gave me a strong foundation
-                in full-stack web development.
+                I build end-to-end AI applications, taking ideas from concept to deployment. 
+                My foundation in software engineering—combined with Python, FastAPI, and PostgreSQL—enables me 
+                to create robust backend systems that power intelligent features.
               </p>
               <p>
-                Today, my workflow has evolved to leverage modern AI tools
-                including{" "}
-                <span className="text-white/80 font-medium">Antigravity</span>{" "}
-                and{" "}
-                <span className="text-white/80 font-medium">Claude</span>,
-                allowing me to build faster and more effectively.
+                Beyond basic prompting, I specialize in implementing real ML systems, integrating 
+                LLM APIs, building RAG pipelines with vector databases, and orchestrating AI agents 
+                to solve complex problems.
               </p>
               <p>
                 I&apos;m currently pursuing an{" "}
@@ -92,10 +88,10 @@ export default function About() {
               className="flex flex-wrap gap-2 mt-8"
             >
               {[
-                "Software Developer",
-                "Web App Developer",
-                "Web Designer",
-                "Solution Developer",
+                "AI Engineer",
+                "Backend Developer",
+                "Machine Learning",
+                "LLM/RAG Integration",
               ].map((role) => (
                 <span
                   key={role}

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 function GithubIcon() {
   return (
@@ -24,23 +25,23 @@ const socials = [
   {
     label: "GitHub",
     icon: <GithubIcon />,
-    href: "#",
-    placeholder: true,
-    description: "GitHub profile — link coming soon",
+    href: "https://github.com/Adnan-Projects",
+    placeholder: false,
+    description: "GitHub profile",
   },
   {
     label: "LinkedIn",
     icon: <LinkedinIcon />,
-    href: "#",
-    placeholder: true,
-    description: "LinkedIn profile — link coming soon",
+    href: "https://www.linkedin.com/in/adnannarimukkil",
+    placeholder: false,
+    description: "LinkedIn profile",
   },
   {
     label: "Email",
     icon: <Mail size={18} />,
-    href: "mailto:placeholder@email.com",
-    placeholder: true,
-    description: "Email — contact details coming soon",
+    href: "mailto:adnannarimukkil@gmail.com",
+    placeholder: false,
+    description: "Email — adnannarimukkil@gmail.com",
   },
 ];
 
@@ -65,11 +66,27 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    // TODO: Connect to a real email service (e.g. Resend, EmailJS, Formspree, or Next.js API route)
-    // For now, simulate submission
-    await new Promise((res) => setTimeout(res, 1000));
-    setSubmitting(false);
-    setSubmitted(true);
+    
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+        {
+          from_name: form.name,
+          to_name: "Adnan",
+          from_email: form.email,
+          message: form.message,
+          reply_to: form.email,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY"
+      );
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      alert("Failed to send message. Please check your EmailJS configuration.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -133,8 +150,11 @@ export default function Contact() {
               className="space-y-3"
             >
               {socials.map((social) => (
-                <div
+                <a
                   key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-4 p-3 rounded-lg border border-white/8 bg-white/2 cursor-pointer hover:border-white/15 transition-all duration-200"
                   title={social.placeholder ? social.description : undefined}
                 >
@@ -150,7 +170,7 @@ export default function Contact() {
                   {social.placeholder && (
                     <AlertCircle size={14} className="ml-auto text-white/15" />
                   )}
-                </div>
+                </a>
               ))}
             </motion.div>
           </div>
@@ -181,16 +201,6 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                <p className="text-xs text-white/25 border border-white/8 rounded-lg p-3 bg-white/2 flex items-start gap-2">
-                  <AlertCircle size={12} className="mt-0.5 shrink-0 text-white/30" />
-                  <span>
-                    Note: Form backend not yet connected. To send real messages,
-                    integrate with an email service such as{" "}
-                    <span className="text-white/40">Resend</span>,{" "}
-                    <span className="text-white/40">EmailJS</span>, or{" "}
-                    <span className="text-white/40">Formspree</span>.
-                  </span>
-                </p>
 
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-medium text-white/50 mb-1.5 uppercase tracking-wide">
